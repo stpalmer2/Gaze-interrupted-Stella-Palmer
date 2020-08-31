@@ -42,12 +42,13 @@ if(this.el.object3D.visible == true){
   </div>
   <a-scene embedded artoolkit='sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 240; canvasHeight: 180' >
     <a-assets>
-      <video id="vid" src="Gaze-interrupted-Stella-Palmer/blob/master/video/Particle-Mountains-for-globe.ogv" loop="true" crossorigin>
+      <video id="vid" src="https://raw.githubusercontent.com/stpalmer2/Gaze-interrupted-Stella-Palmer/blob/master/video/Particle-Mountains-for-globe.ogv" loop="true" crossorigin>
+        
 
     </a-assets>
    
     <a-marker id="memarker" preset="hiro" vidhandler>
-      <a-sphere scale="0.8 0.8 0.8" rotation= "90 0 0" position='0 0 -1.6' material='transparent:true;opacity: 1;src:#vid'><a-sphere>
+      <a-sphere scale="0.8 0.8 0.8" rotation= "90 0 0" position='0 0 0' material='src:#vid'><a-sphere>
 
 
     </a-marker>
