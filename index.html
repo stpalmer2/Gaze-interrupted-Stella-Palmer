@@ -8,6 +8,8 @@
   <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.8.4/dist/aframe-extras.min.js"></script>
 
   <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
   <script>
 AFRAME.registerComponent('vidhandler', {
   // ...
@@ -15,7 +17,6 @@ AFRAME.registerComponent('vidhandler', {
     // Set up initial state and variables.
     this.toggle = false;
     this.vid = document.querySelector("#vid")
-    this.vid1 = document.querySelector("#vid1")
     this.vid.pause();
   },
   tick:function(){
@@ -37,17 +38,20 @@ if(this.el.object3D.visible == true){
 
 
 <body style='margin : 0px; overflow: hidden;'>
+  <video id="vid" autoplay loop muted playsinline crossorigin="anonymous" webkit-playsinline style="display:none">
+
+<source src="video/Particle-Mountains-for-globe.ogv">
+</video>
   <div style='position: fixed; top: 10px; width:inherit; text-align: center; z-index: 1;'>
     <a href="https://github.com/jeromeetienne/AR.js/" target="_blank">AR.js</a> - Check out the repository !
   </div>
   <a-scene embedded artoolkit='sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 240; canvasHeight: 180' >
     <a-assets>
-      <video id="vid" src="https://raw.githubusercontent.com/stpalmer2/hack_portraits-/master/video/Particle-Mountains-for-globe.ogv" loop="true" crossorigin>
 
     </a-assets>
    
     <a-marker id="memarker" preset="hiro" vidhandler>
-      <a-sphere scale="0.8 0.8 0.8" rotation= "90 0 0" position='0 0 -1.6' material='transparent:true;opacity: 1;src:#vid'><a-sphere>
+      <a-sphere scale="0.8 0.8 0.8" rotation= "90 0 0" position='0 0 -1.6' material='src:#vid'><a-sphere>
 
 
     </a-marker>
@@ -58,3 +62,8 @@ if(this.el.object3D.visible == true){
 
 
 </html>
+function playVideo(){
+	let video = document.getElementById('video');
+	video.play();
+}
+playVideo();
